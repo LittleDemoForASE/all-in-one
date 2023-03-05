@@ -6,6 +6,8 @@ localstack后台运行：
 
 docker-compose up -d
 
+（需要创建 AWS 账号，设置 credentials）
+
 在4566端口新建aws s3的 bucket:
 
 aws --endpoint-url=http://localhost:4566 s3 mb s3://demo-bucket
