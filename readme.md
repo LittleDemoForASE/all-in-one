@@ -18,3 +18,12 @@ http://localhost:4566/health
 各个服务应该都显示 available
 
 
+
+
+
+架构：
+
+参考去年项目 https://github.com/Hack3rz-Official/annotation-web-service/wiki
+
+或前年项目：https://github.com/melihcatal/aseTermProject
+
