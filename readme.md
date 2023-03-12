@@ -1,4 +1,5 @@
-12023.3.12:
+2023.3.12:
+\\
 docker-compose up
 将从docker hub pull下来 server2-demo 和 client2-demo同时运行，（前端有点慢），打开localhost:3000访问sopra的实验网页。
 
@@ -6,7 +7,9 @@ what lefts to be done:
 integrate MongoDB and MongoDB express: https://www.youtube.com/watch?v=3c-iBn73dDE&t=645s
 
 
-
+\\
+\\
+\\
 
 
 
