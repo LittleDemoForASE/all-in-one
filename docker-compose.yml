@@ -1,32 +1,42 @@
 version: '3.8'
 
 services:
-  localstack:
-    image: localstack/localstack:latest
-    container_name: localstack_demo
-    hostname: localstack
+  backend: # give a service name 
+    # build: ./src/server2 # build the image locally
+    image: hongjieguan/server2-demo # pull from github account
     ports:
-      - '4566:4566'
-      # - '4566-4620:4566-4620'
-      # - '53:53'
-      # - '443:443'
-      # - '4572:4572'
-      # - '8055:8080'
-    environment:
-      # Declare which aws services will be used in localstack
+      - 8080:8080 #localhost:8080 maps to port 8080 of the container
 
-      - SERVICES=serverless,sqs,sns,iam,s3,lambda
-      - DEBUG=1
-      # These variables are needed for localstack
-      - AWS_DEFAULT_REGION=eu-central-2
-      # - AWS_ACCESS_KEY_ID=testUser
-      # - AWS_SECRET_ACCESS_KEY=testAccessKey
-      # - DOCKER_HOST=unix:///var/run/docker.sock
-      - DATA_DIR=/var/lib/localstack/data
-    volumes:
-      # - './.localstack:/tmp/localstack'
-      # - '/var/run/docker.sock:/var/run/docker.sock'
-      - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
-      - /var/run/docker.sock:/var/run/docker.sock
+  frontend:
+    # build: ./sec/client2 # build the image locally
+    image: hongjieguan/client2-demo # pull from github account
+    ports:
+      - 3000:3000 
+    depends_on:
+      - backend
+
+
+  # localstack:
+  #   image: localstack/localstack:latest #pull from docker hub
+  #   container_name: localstack_demo
+  #   hostname: localstack
+  #   ports:
+  #     - '4566:4566'
+  #   environment:
+  #     # Declare which aws services will be used in localstack
+
+  #     - SERVICES=serverless,sqs,sns,iam,s3,lambda
+  #     - DEBUG=1
+  #     # These variables are needed for localstack
+  #     - AWS_DEFAULT_REGION=eu-central-2
+  #     # - AWS_ACCESS_KEY_ID=testUser
+  #     # - AWS_SECRET_ACCESS_KEY=testAccessKey
+  #     # - DOCKER_HOST=unix:///var/run/docker.sock
+  #     - DATA_DIR=/var/lib/localstack/data
+  #   volumes:
+  #     # - './.localstack:/tmp/localstack'
+  #     # - '/var/run/docker.sock:/var/run/docker.sock'
+  #     - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
+  #     - /var/run/docker.sock:/var/run/docker.sock
 
 
