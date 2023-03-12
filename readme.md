@@ -1,5 +1,5 @@
 2023.3.12:
-\\
+
 docker-compose up
 将从docker hub pull下来 server2-demo 和 client2-demo同时运行，（前端有点慢），打开localhost:3000访问sopra的实验网页。
 
